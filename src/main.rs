@@ -3,6 +3,7 @@ use std::{fs,process};
 use std::time::{Duration};
 use std::thread::sleep;
 use std::ffi::OsStr;
+use std::path::Path;
 
 fn min_to_mil(value: f32) -> u64{
     return (value * 60000.) as u64;
@@ -38,8 +39,14 @@ fn main() {
 
     let content_path = "./art-loop-content";
 
+    let v;
+
+    if Path::new(content_path).exists() {
+        v = get_list(content_path);
+    } else {
+        v = Vec::new();
+    }
     // let mut v = Vec::new();
-    let v = get_list(content_path);
 
     // let paths = fs::read_dir(&content_path).unwrap();
     // for path in paths {
@@ -83,7 +90,7 @@ fn main() {
 
         }
     } else {
-        println!("Folder is empty");
+        println!("Folder is empty or does not exist"); //make this clearer
     }
 
 }
