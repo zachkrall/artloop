@@ -1,9 +1,23 @@
 #[allow(dead_code)]
-use std::{fs,process};
-use std::time::{Duration};
-use std::thread::sleep;
-use std::ffi::OsStr;
-use std::path::Path;
+use std::{
+    fs,
+    env,
+    process,
+    time::Duration,
+    thread::sleep,
+    ffi::OsStr,
+    path::Path
+};
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+    #[test]
+    fn convert_time() {
+        // Test for time conversion function
+        assert_eq!(min_to_mil(10.0), 600000);
+    }
+}
 
 fn min_to_mil(value: f32) -> u64{
     return (value * 60000.) as u64;
@@ -24,73 +38,64 @@ fn get_list(action_dir_path: &str) -> Vec<String> {
         .collect()
 }
 
-// TODO: function to delete ds_store files
+// TODO:
+// fn delete_ds_store(){
+//
+// }
+
+fn get_args() -> Vec<String>{
+    return env::args().collect();
+}
+
+fn welcome_message(_args: Vec<String>){
+    println!("art loop ...\n");
+    println!("passed args:");
+    for _arg in _args{
+        println!("arg: {}", _arg);
+    }
+    println!("\n");
+}
 
 fn main() {
 
-    // let args: Vec<String> = env::args().collect();
+    let args = get_args();
     let sleep_time = min_to_mil(0.1);
-
-    println!("Hello, world!");
-
-    // for arg in args{
-    //     println!("arg: {:?}", arg);
-    // }
-
     let content_path = "./art-loop-content";
-
     let v;
+
+    welcome_message(args);
 
     if Path::new(content_path).exists() {
         v = get_list(content_path);
     } else {
-        v = Vec::new();
+        // Exit script if content_path does not exist
+        println!("\nsupplied path does not exist, bummer.");
+        process::exit(0);
     }
-    // let mut v = Vec::new();
 
-    // let paths = fs::read_dir(&content_path).unwrap();
-    // for path in paths {
-    //     //println!("Name: {}", path.unwrap().path().display())
-    //     if let Ok(path) = path {
-    //         // Here, `entry` is a `DirEntry`.
-    //         let newpath = path.file_name().into_string().unwrap();
-    //         let newstem = &path.path().file_stem();
-    //         v.push( (newpath, newstem) );
-    //     }
-    // }
-
-    // let mut iterpath = paths.cycle();
-
-    // let mut array = ["Hello","Goodbye","It's me"].iter().cycle();
     let mut array = v.iter().cycle();
 
-    if v.len() > 0 {
-        loop {
+    let mut condition = v.len() > 0;
 
-            // println!("{:?}",&array.next().unwrap());
-            // // println!("{:?}",paths.next().unwrap().path().file_stem().unwrap());
-            // sleep(Duration::from_millis(sleep_time));
+    while condition {
 
-            // dbg!(&array.next().unwrap());
+        println!("\nfinding next artwork ...\n",);
+        sleep(Duration::from_millis(1000));
 
-            let file = &array.next().unwrap();
+        let file   = &array.next().unwrap();
+        let mypath = format!("{}/{}.app/Contents/MacOS/{}", content_path, file, file );
 
-            let  mypath = format!("./art-loop-content/{}.app/Contents/MacOS/{}", file, file );
-            let mut mycommand = process::Command::new(OsStr::new(&mypath));
+        let mut mycommand = process::Command::new(OsStr::new(&mypath));
 
-            if let Ok(mut child) = mycommand.spawn() {
-                println!("==process {} begin==", file);
-                sleep(Duration::from_millis( sleep_time ));
-                child.kill().expect("command wasn't running");
-                println!("==process ended==");
-                sleep(Duration::from_millis(100));
-            } else {
-                println!("process unable to start");
-            }
-
+        if let Ok(mut child) = mycommand.spawn() {
+            println!("started \"{}\" ...", file);
+            sleep(Duration::from_millis( sleep_time ));
+            child.kill().expect("command wasn't running");
+            println!("ended");
+        } else {
+            condition = false; // break while loop
         }
-    } else {
-        println!("Folder is empty or does not exist"); //make this clearer
+
     }
 
 }

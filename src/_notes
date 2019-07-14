@@ -25,3 +25,8 @@ for path in paths {
     //println!("Name: {}", path.unwrap().path().display())
     println!("Filename: {}", path.unwrap().path().file_stem().unwrap() );
 }
+
+
+// SIGTERM vs SIGKILL
+write a bash script that rust app calls to SIGKILL?
+https://stackoverflow.com/questions/49210815/how-do-i-send-a-signal-to-a-child-subprocess
