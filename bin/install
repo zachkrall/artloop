@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#DOWNLOADPATH=/usr/local/bin/art-loop
+
+#echo -e "\nInstalling art loop at $DOWNLOADPATH ...\n"
+
+#curl git url /dist/macos/art-loop > $DOWNLOADPATH
+
+#echo -e "\nDone"
