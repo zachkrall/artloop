@@ -1,12 +1,36 @@
-# art-loop
+# art loop
 
 <a href='http://www.recurse.com' title='Made with love at the Recurse Center'><img src='https://cloud.githubusercontent.com/assets/2883345/11325206/336ea5f4-9150-11e5-9e90-d86ad31993d8.png' height='20px'/></a> <a href='http://newschool.edu' title='Made with love at The New School'><img src='./docs/images/the-new-school.png' height='20px'/></a> <a href="https://travis-ci.org/zachkrall/art-loop" title="Travis CI Build"><img src="https://api.travis-ci.org/zachkrall/art-loop.png" height="20px"/></a>
 
-This is the repository for the server that helps transition from one generative art project to another.
+Currently maintained by [Zach Krall](https://github.com/zachkrall) and
+[Sean Scalan](https://github.com/skiprox). (MFA Design + Technology,
+Parsons School of Design)
 
-Currently maintained by [Zach Krall](https://github.com/zachkrall) and [Sean Scalan](https://github.com/skiprox).
+## about
 
-## Participate
+art loop is a script written in [Rust](https://rust-lang.org) that
+cycles through all generative art `.app` files in a folder on a timed
+interval.
 
-* Submit artwork: [ TO DO ]
-* Download templates: [github.com/zachkrall/art-loop-example](https://github.com/zachkrall/art-loop-examples)
+art loop currently only works on macOS. Once all `.app` files are
+collected from a folder, it executes the binary found in
+`{APPNAME}.app/Contents/MacOS/`.
+
+## setting up
+
+[ TO DO: download instructions ]
+
+## experience
+
+✨hopefully✨ you'll be able to find art loop on D12 at Parsons School
+of Design.
+
+## participate
+
+### how to submit artwork
+
+[ TO DO ]
+
+### how to create compatible artwork
+
+Download templates at [github.com/zachkrall/art-loop-templates](https://github.com/zachkrall/art-loop-templates)
