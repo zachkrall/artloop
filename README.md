@@ -1,10 +1,12 @@
 # art loop
 
-<a href='http://www.recurse.com' title='Made with love at the Recurse Center'><img src='https://cloud.githubusercontent.com/assets/2883345/11325206/336ea5f4-9150-11e5-9e90-d86ad31993d8.png' height='20px'/></a> <a href='http://newschool.edu' title='Made with love at The New School'><img src='./docs/images/the-new-school.png' height='20px'/></a> <a href="https://travis-ci.org/zachkrall/art-loop" title="Travis CI Build"><img src="https://api.travis-ci.org/zachkrall/art-loop.png" height="20px"/></a>
+<a href='http://www.recurse.com' title='Made with love at the Recurse Center'><img src='https://cloud.githubusercontent.com/assets/2883345/11325206/336ea5f4-9150-11e5-9e90-d86ad31993d8.png' height='20px'/></a> <a href='http://newschool.edu' title='Made with love at The New School'><img src='./images/the-new-school.png' height='20px'/></a> <a href="https://travis-ci.org/zachkrall/art-loop" title="Travis CI Build"><img src="https://api.travis-ci.org/zachkrall/art-loop.png" height="20px"/></a>
 
 Currently maintained by [Zach Krall](https://github.com/zachkrall) and
 [Sean Scalan](https://github.com/skiprox). (MFA Design + Technology,
 Parsons School of Design)
+
+<img src="./images/diagram.png"/>
 
 ## about
 
@@ -18,7 +20,11 @@ collected from a folder, it executes the binary found in
 
 ## setting up
 
-[ TO DO: download instructions ]
+to copy the most recent art-loop binary to your computer, run the
+following code in your terminal
+```shell
+/bin/bash -c “$(curl -fsSL https://raw.githubusercontent.com/zachkrall/art-loop/master/bin/install)”
+```
 
 ## experience
 
