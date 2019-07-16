@@ -6,8 +6,7 @@ use std::{
     time::Duration,
     thread::sleep,
     ffi::OsStr,
-    option::Option,
-    fs
+    option::Option
 };
 use glob::glob;
 use clap::{App,Arg};
@@ -53,7 +52,6 @@ fn get_glob_list(dir_path: &str) -> Vec<String>{
 }
 
 fn get_sleep_time(value: Option<&str>, default_time: f32) -> Duration{
-    // This feels crazy
     if value.is_some() && value.unwrap().parse::<f32>().is_ok() {
         return Duration::from_millis((value.unwrap().parse::<f32>().unwrap() * 60000.) as u64);
     } else {
@@ -69,10 +67,10 @@ fn welcome_message(path: &String, time: &Duration){
     println!("-----");
 }
 
-fn delete_ds(path: &String) -> std::io::Result<()>{
-    fs::remove_file(format!("{}.DS_STORE", path))?;
-    Ok(())
-}
+// fn delete_ds(path: &String) -> std::io::Result<()>{
+//     fs::remove_file(format!("{}.DS_STORE", path))?;
+//     Ok(())
+// }
 
 fn main() {
     let args = App::new("ARTLOOP")
@@ -96,18 +94,12 @@ fn main() {
     let apps = get_glob_list(&content_path);
 
     welcome_message(&content_path, &sleep_time);
-<<<<<<< HEAD
-=======
-    println!("-----");
 
-    let message = delete_ds(&content_path);
-    match message {
-        Ok(v) => println!("We deleted .DS_Store: {:?}", v),
-        Err(e) => println!("we did not delete .DS_Store: {:?}", e),
-    }
-
-    v = get_glob_list(&content_path);
->>>>>>> 4b9a1a813dbfdc89d266ffe83fde8210cd67c97d
+    // let message = delete_ds(&content_path);
+    // match message {
+    //     Ok(v) => println!("We deleted .DS_Store: {:?}", v),
+    //     Err(e) => println!("we did not delete .DS_Store: {:?}", e),
+    // }
 
     if apps.len() < 1 {
         println!("🔍 can't find any apps in {}\n", &content_path);

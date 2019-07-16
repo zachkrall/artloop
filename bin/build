@@ -1,4 +1,4 @@
 #!/bin/bash
 
 cargo build --release
-cp ./target/release/artloop ./dist/artloop
+cp -rf ./target/release/artloop ./dist/artloop
