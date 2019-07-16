@@ -63,7 +63,7 @@ fn welcome_message(path: &String, time: &Duration){
     println!("🔄 artloop");
     println!("-----");
     println!("🎨 content path: {}", path);
-    println!("⏰ transition time: {:?}ms", time);
+    println!("⏰ transition time: {:?}", time);
     println!("-----");
 }
 
@@ -121,7 +121,7 @@ fn main() {
             let file = OsStr::new(array.next().unwrap());
             let mut mycommand = Command::new(file);
             if let Ok(mut child) = mycommand.spawn() {
-                println!("... playing \"{:?}\" ...", file);
+                println!("... playing {:?}", file);
                 sleep(sleep_time);
                 child.kill().expect("command expected");
             }
