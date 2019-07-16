@@ -26,6 +26,19 @@ following code in your terminal
 /bin/bash -c “$(curl -fsSL https://raw.githubusercontent.com/zachkrall/art-loop/master/bin/install)”
 ```
 
+once installed, you'll be able to start artloop in your terminal. artloop
+expects a command to include a relative path to a folder (defaults to
+current folder you are in) and a number for how many minutes each
+artwork should be viewed for.
+
+```
+artloop <FOLDER> --time <MINUTES>
+```
+
+artloop will run ... forever ... until the script is canceled by
+entering ctrl-c (^C)
+
+
 ## experience
 
 ✨hopefully✨ you'll be able to find artloop on D12 at Parsons School
