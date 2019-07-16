@@ -6,7 +6,8 @@ use std::{
     time::Duration,
     thread::sleep,
     ffi::OsStr,
-    option::Option
+    option::Option,
+    fs
 };
 use glob::glob;
 use clap::{App,Arg};
@@ -64,6 +65,11 @@ fn welcome_message(path: &String, time: &u64){
     println!("⏰ transition time: {}ms", time);
 }
 
+fn delete_ds(path: &String) -> std::io::Result<()>{
+    fs::remove_file(format!("{}.DS_STORE", path))?;
+    Ok(())
+}
+
 fn main() {
 
     let args = App::new("ARTLOOP")
@@ -87,6 +93,12 @@ fn main() {
 
     welcome_message(&content_path, &sleep_time);
     println!("-----");
+
+    let message = delete_ds(&content_path);
+    match message {
+        Ok(v) => println!("We deleted .DS_Store: {:?}", v),
+        Err(e) => println!("we did not delete .DS_Store: {:?}", e),
+    }
 
     v = get_glob_list(&content_path);
 
