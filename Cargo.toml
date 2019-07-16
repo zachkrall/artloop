@@ -1,7 +1,9 @@
 [package]
-name = "art-loop"
+name = "artloop"
 version = "0.1.0"
 authors = ["Zach Krall <zach@zachkrall.com>"]
 edition = "2018"
 
 [dependencies]
+glob = "0.3.0"
+clap = "2"
