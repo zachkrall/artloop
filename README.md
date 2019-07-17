@@ -1,55 +1,45 @@
-# artloop
+<center><img src="./images/logo.png" height="50px"/><br/>
 
-<a href='http://www.recurse.com' title='Made with love at the Recurse Center'><img src='https://cloud.githubusercontent.com/assets/2883345/11325206/336ea5f4-9150-11e5-9e90-d86ad31993d8.png' height='20px'/></a> <a href='http://newschool.edu' title='Made with love at The New School'><img src='./images/the-new-school.png' height='20px'/></a> <a href="https://travis-ci.org/zachkrall/artloop" title="Travis CI Build"><img src="https://api.travis-ci.org/zachkrall/artloop.png" height="20px"/></a>
-
-Currently maintained by [Zach Krall](https://github.com/zachkrall) and
-[Sean Scalan](https://github.com/skiprox). (MFA Design + Technology,
-Parsons School of Design)
-
-<img src="./images/diagram.png"/>
+<a href="https://www.recurse.com/scout/click?t=547ff0b401bdb9be36cf2425204017cc" title="Made with love at the Recurse Center"><img src="https://cloud.githubusercontent.com/assets/2883345/11325206/336ea5f4-9150-11e5-9e90-d86ad31993d8.png" height="20px"/></a> <a href="http://newschool.edu"><img src="https://img.shields.io/badge/made%20at-The%20New%20School-E82E21.svg" height="20px"/></a><br/><a href="https://travis-ci.org/zachkrall/artloop" title="Travis CI Build"><img src="https://img.shields.io/travis/zachkrall/artloop.svg" height="20px"/></a> <a href="https://github.com/zachkrall/artloop/issues/"><img src="https://img.shields.io/github/issues/zachkrall/artloop.svg" height="20px"/></a> <a href="https://github.com/zachkrall/artloop/commits"><img src="https://img.shields.io/github/last-commit/zachkrall/artloop.svg" height="20px"/></a></center>
 
 ## about
 
-artloop is a script written in [Rust](https://rust-lang.org) that
-cycles through all generative art `.app` files in a folder on a timed
-interval.
+artloop is a command-line interface ([CLI](https://en.wikipedia.org/wiki/Command-line_interface)) written in [Rust](https://rust-lang.org) that cycles through all generative art applications within a folder on a timed interval.
 
-artloop currently only works on macOS. Once all `.app` files are
-collected from a folder, it executes the binary found in
-`{APPNAME}.app/Contents/MacOS/`.
+artloop currently only works on macOS.
 
-## setting up
+## installation
 
-to copy the most recent art-loop binary to your computer, run the
-following code in your terminal
+to install the most recent artloop script to your computer, run the
+following code in your terminal:
 ```shell
-/bin/bash -c “$(curl -fsSL https://raw.githubusercontent.com/zachkrall/art-loop/master/bin/install)”
+curl -fsSL https://raw.githubusercontent.com/zachkrall/artloop/master/dist/artloop > /usr/local/bin/artloop && echo "download complete"
 ```
+the above script will install artloop in `/usr/local/bin/`. you can confirm this by running `which artloop` in your terminal.
 
-once installed, you'll be able to start artloop in your terminal. artloop
-expects a command to include a relative path to a folder (defaults to
-current folder you are in) and a number for how many minutes each
-artwork should be viewed for.
+once installed, you'll be able to start artloop by passing a relative folder location and a number of minutes each artwork should run.
 
-```
+```shell
 artloop <FOLDER> --time <MINUTES>
 ```
 
-artloop will run ... forever ... until the script is canceled by
+artloop will run until the script is canceled by
 entering ctrl-c (^C)
 
+## running automatically at startup
 
-## experience
-
-✨hopefully✨ you'll be able to find artloop on D12 at Parsons School
-of Design.
+to have artloop run at startup, add a line to `$HOME/.bash_profile` which calls the artloop script and supplies a relative folder path containing applications.
 
 ## participate
 
-### how to submit artwork
+### creating compatible artwork
 
-[ TO DO ]
+any creative coding project (e.g. openFrameworks, processing) that is bundled as a macOS application package (i.e. a file that ends in `.app`) will work with artloop.
 
-### how to create compatible artwork
+templates for starting a new project that will work with artloop can be downloaded at [github.com/zachkrall/artloop-templates](https://github.com/zachkrall/artloop-templates)
 
-Download templates at [github.com/zachkrall/art-loop-templates](https://github.com/zachkrall/art-loop-templates)
+## contributing
+Contributions, issues and feature requests are welcome.<br/>Feel free to check [issues](https://github.com/zachkrall/artloop/issues/) page if you want to contribute.
+
+## license
+Copyright © 2019 [Zach Krall](https://zachkrall.com)<br/>This project is [MIT](https://github.com/zachkrall/artloop/blob/master/LICENSE) licensed.
