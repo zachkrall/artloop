@@ -9,12 +9,17 @@ artloop currently only works on macOS.
 
 ## installation
 
-to install the most recent artloop script to your computer, run the
-following code in your terminal:
+if you have `cargo` (Rust's package manager) installed, you can install artloop with:
+```shell
+cargo install --git https://github.com/zachkrall/artloop
+```
+
+if you would like to install the binary and do not have `cargo` installed, you can use the following command to install artloop at `/usr/local/bin`:
 ```shell
 curl -fsSL https://raw.githubusercontent.com/zachkrall/artloop/master/dist/artloop > /usr/local/bin/artloop && echo "download complete"
 ```
-the above script will install artloop in `/usr/local/bin/`. you can confirm this by running `which artloop` in your terminal.
+
+to confirm artloop is installed, you can run `which artloop` in your terminal.
 
 once installed, you'll be able to start artloop by passing a relative folder location and a number of minutes each artwork should run.
 
