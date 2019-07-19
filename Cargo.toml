@@ -10,8 +10,8 @@ documentation = "https://github.com/zachkrall/artloop"
 homepage = "https://github.com/zachkrall/artloop"
 repository = "https://github.com/zachkrall/artloop"
 readme = "README.md"
-keywords = ["art", "display"]
-categories = ["hardware-support", "os::macos-apis"]
+keywords = ["cli","art", "display"]
+categories = ["command-line-utilities"]
 
 exclude = [
     "dist/*",
