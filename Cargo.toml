@@ -5,6 +5,17 @@ authors = ["Zach Krall <zach@zachkrall.com>"]
 edition = "2018"
 license = "MIT"
 
+description = "artloop is a command-line interface that cycles through all generative art applications within a folder on a timed interval."
+documentation = "https://github.com/zachkrall/artloop"
+homepage = "https://github.com/zachkrall/artloop"
+repository = "https://github.com/zachkrall/artloop"
+readme = "README.md"
+keywords = ["art", "display"]
+categories = ["hardware-support", "os::macos-apis"]
+
+[badges]
+travis-ci = { repository = "zachkrall/artloop", branch = "master" }
+
 [dependencies]
 glob = "0.3.0"
 clap = "2"
