@@ -9,7 +9,7 @@ artloop currently only works on macOS.
 
 ## installation
 
-if you have `cargo` (Rust's package manager) installed, you can install artloop with:
+if you have `cargo` ([Rust's package manager](https://doc.rust-lang.org/cargo/)) installed, you can install artloop with:
 ```shell
 cargo install --git https://github.com/zachkrall/artloop
 ```
@@ -21,10 +21,14 @@ curl -fsSL https://raw.githubusercontent.com/zachkrall/artloop/master/dist/artlo
 
 to confirm artloop is installed, you can run `which artloop` in your terminal.
 
-once installed, you'll be able to start artloop by passing a relative folder location and a number of minutes each artwork should run.
+
+## usage 
+
+to start artloop, provide a relative folder location and a number of minutes each artwork should run.
 
 ```shell
 artloop <FOLDER> --time <MINUTES>
+# example: artloop ./content --time 10
 ```
 
 artloop will run until the script is canceled by
