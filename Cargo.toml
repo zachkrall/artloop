@@ -1,16 +1,16 @@
 [package]
 name = "artloop"
 version = "0.1.0"
-authors = ["Zach Krall <zach@zachkrall.com>"]
+authors = ["Zach Krall"]
 edition = "2018"
 license = "MIT"
 
-description = "artloop is a command-line interface that cycles through all generative art applications within a folder on a timed interval."
+description = "artloop is a command-line interface that cycles through all applications within a folder on a timed interval for art installations."
 documentation = "https://github.com/zachkrall/artloop"
 homepage = "https://github.com/zachkrall/artloop"
 repository = "https://github.com/zachkrall/artloop"
 readme = "README.md"
-keywords = ["cli","art", "display"]
+keywords = ["art","display","slideshow","cli"]
 categories = ["command-line-utilities"]
 
 exclude = [

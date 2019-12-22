@@ -5,7 +5,7 @@
 
 artloop is a command-line interface ([CLI](https://en.wikipedia.org/wiki/Command-line_interface)) written in [Rust](https://rust-lang.org) that cycles through all generative art applications within a folder on a timed interval.
 
-artloop currently only works on macOS.
+artloop currently only works on macOS due to the way that macOS executables are nested (*.app/Contents/MacOS/*).
 
 ## installation
 
@@ -42,7 +42,7 @@ to have artloop run at startup, add a line to `$HOME/.bash_profile` which calls 
 
 ### creating compatible artwork
 
-any creative coding project (e.g. openFrameworks, processing) that is bundled as a macOS application package (i.e. a file that ends in `.app`) will work with artloop.
+any creative coding project (e.g. openFrameworks, Processing, Unity) that is bundled as a macOS application package (i.e. a file that ends in `.app`) will work with artloop.
 
 templates for starting a new project that will work with artloop can be downloaded at [github.com/zachkrall/artloop-templates](https://github.com/zachkrall/artloop-templates)
 
