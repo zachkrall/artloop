@@ -16,7 +16,7 @@ function getPlatform() {
 function getBinary() {
   const platform = getPlatform();
   const version = require('../package.json').version;
-  const url = `https://github.com/zachkrall/artloop/releases/download/v${version}/artloop-${platform}.tar.gz`;
+  const url = `https://github.com/zachkrall/artloop/releases/download/${version}/artloop-${platform}.tar.gz`;
   const name = 'artloop';
   return new Binary(url, { name });
 }
