@@ -43,5 +43,7 @@ to have artloop run at startup, add a line to `$HOME/.bash_profile` which calls 
 
 For now, any creative coding project (e.g. openFrameworks, Processing, Unity) that is bundled as a macOS application package (i.e. a file that ends in `.app`) will work with artloop.
 
+Next versions will enable web based project folders that will launch in a web view.
+
 ## license
 Copyright © 2019 [Zach Krall](https://zachkrall.com)<br/>This project is [MIT](https://github.com/zachkrall/artloop/blob/master/LICENSE) licensed.
