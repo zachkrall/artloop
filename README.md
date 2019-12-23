@@ -3,20 +3,20 @@
 
 ## about
 
-artloop is a command-line interface ([CLI](https://en.wikipedia.org/wiki/Command-line_interface)) written in [Rust](https://rust-lang.org) that cycles through all generative art applications within a folder on a timed interval.
+artloop is a command-line interface that cycles through all generative art applications within a folder on a timed interval.
 
-artloop currently only works on macOS due to the way that macOS executables are nested (*.app/Contents/MacOS/*).
+artloop currently only works on macOS due to how the script looks for executables inside of `*.app/Contents/MacOS/*`.
 
 ## installation
 
-if you have `cargo` ([Rust's package manager](https://doc.rust-lang.org/cargo/)) installed, you can install artloop with:
+with `cargo`:
 ```shell
-cargo install --git https://github.com/zachkrall/artloop
+cargo install artloop
 ```
 
-if you would like to install the binary and do not have `cargo` installed, you can use the following command to install artloop at `/usr/local/bin`:
+with `npm`:
 ```shell
-curl -fsSL https://raw.githubusercontent.com/zachkrall/artloop/master/dist/artloop > /usr/local/bin/artloop && echo "download complete"
+npm install artloop
 ```
 
 to confirm artloop is installed, you can run `which artloop` in your terminal.
@@ -31,8 +31,7 @@ artloop <FOLDER> --time <MINUTES>
 # example: artloop ./content --time 10
 ```
 
-artloop will run until the script is canceled by
-entering ctrl-c (^C)
+artloop will run until the script is canceled with `CTRL + C` (^C)
 
 ## running automatically at startup
 
@@ -42,12 +41,7 @@ to have artloop run at startup, add a line to `$HOME/.bash_profile` which calls 
 
 ### creating compatible artwork
 
-any creative coding project (e.g. openFrameworks, Processing, Unity) that is bundled as a macOS application package (i.e. a file that ends in `.app`) will work with artloop.
-
-templates for starting a new project that will work with artloop can be downloaded at [github.com/zachkrall/artloop-templates](https://github.com/zachkrall/artloop-templates)
-
-## contributing
-Contributions, issues and feature requests are welcome.<br/>Feel free to check [issues](https://github.com/zachkrall/artloop/issues/) page if you want to contribute.
+For now, any creative coding project (e.g. openFrameworks, Processing, Unity) that is bundled as a macOS application package (i.e. a file that ends in `.app`) will work with artloop.
 
 ## license
 Copyright © 2019 [Zach Krall](https://zachkrall.com)<br/>This project is [MIT](https://github.com/zachkrall/artloop/blob/master/LICENSE) licensed.

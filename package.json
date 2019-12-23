@@ -1,0 +1,35 @@
+{
+  "name": "artloop",
+  "version": "0.0.0",
+  "description": "artloop is a command-line interface that cycles through all applications within a folder on a timed interval for art installations.",
+  "main": "index.js",
+  "bin": {
+    "artloop": "./npm/run.js"
+  },
+  "scripts": {
+    "postinstall": "node npm/install.js",
+    "preinstall": "node npm/uninstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zachkrall/artloop.git"
+  },
+  "keywords": [
+    "cli",
+    "art",
+    "display",
+    "slideshow"
+  ],
+  "author": "Zach Krall",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/zachkrall/artloop/issues"
+  },
+  "homepage": "https://github.com/zachkrall/artloop#readme",
+  "dependencies": {
+    "binary-install": "0.0.1"
+  },
+  "files": [
+    "npm/**/*"
+  ]
+}
