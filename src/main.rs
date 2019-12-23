@@ -1,46 +1,42 @@
-extern crate glob;
 extern crate clap;
+extern crate glob;
 
-use std::{
-    process::{exit,Command},
-    time::Duration,
-    thread::sleep,
-    ffi::OsStr,
-    option::Option
-};
+use clap::{App, Arg};
 use glob::glob;
-use clap::{App,Arg};
+use std::{
+    ffi::OsStr,
+    option::Option,
+    process::{exit, Command},
+    thread::sleep,
+    time::Duration,
+};
 
 #[cfg(test)]
 mod tests {
     use super::*;
     #[test]
-    fn sleep_value_passed_string(){
+    fn sleep_value_passed_string() {
         assert_eq!(
             Duration::from_millis(120000),
             get_sleep_time(Some("oops"), 2.)
         );
     }
     #[test]
-    fn sleep_value_passed_number(){
-        assert_eq!(
-            Duration::from_millis(60000),
-            get_sleep_time(Some("1"), 30.)
-        );
+    fn sleep_value_passed_number() {
+        assert_eq!(Duration::from_millis(60000), get_sleep_time(Some("1"), 30.));
     }
     #[test]
-    fn match_file_type(){
-        let myvar = match Some("String"){
+    fn match_file_type() {
+        let myvar = match Some("String") {
             Some(path) => path,
-            None => "Oops"
+            None => "Oops",
         };
         assert_eq!("String", myvar);
     }
 }
 
-
-fn get_glob_list(dir_path: &str) -> Vec<String>{
-    let mut v:Vec<String> = vec![];
+fn get_glob_list(dir_path: &str) -> Vec<String> {
+    let mut v: Vec<String> = vec![];
     let query = format!("{}/*.app/Contents/MacOS/*", dir_path);
     for entry in glob(&query).expect("failed to read glob pattern") {
         match entry {
@@ -51,7 +47,7 @@ fn get_glob_list(dir_path: &str) -> Vec<String>{
     return v;
 }
 
-fn get_sleep_time(value: Option<&str>, default_time: f32) -> Duration{
+fn get_sleep_time(value: Option<&str>, default_time: f32) -> Duration {
     if value.is_some() && value.unwrap().parse::<f32>().is_ok() {
         return Duration::from_millis((value.unwrap().parse::<f32>().unwrap() * 60000.) as u64);
     } else {
@@ -59,7 +55,7 @@ fn get_sleep_time(value: Option<&str>, default_time: f32) -> Duration{
     }
 }
 
-fn welcome_message(path: &String, time: &Duration){
+fn welcome_message(path: &String, time: &Duration) {
     println!("🔄 artloop");
     println!("-----");
     println!("🎨 content path: {}", path);
@@ -74,19 +70,22 @@ fn welcome_message(path: &String, time: &Duration){
 
 fn main() {
     let args = App::new("ARTLOOP")
-                    .author("Zach Krall <zachkrall@newschool.edu>")
-                    .version("0.1.0")
-                    .about("Utility to cycle through a folder of generative art projects.")
-                    .arg(Arg::with_name("FOLDER")
-                        .help("Selects the folder to use. (Defaults to current folder.)")
-                        .required(false)
-                    )
-                    .arg(Arg::with_name("time")
-                        .short("t")
-                        .long("time")
-                        .help("Specify the duration of each project in minutes.")
-                        .takes_value(true))
-                    .get_matches();
+        .author("Zach Krall")
+        .version("0.1.0")
+        .about("Utility to cycle through a folder of generative art projects.")
+        .arg(
+            Arg::with_name("FOLDER")
+                .help("Selects the folder to use. (Defaults to current folder.)")
+                .required(false),
+        )
+        .arg(
+            Arg::with_name("time")
+                .short("t")
+                .long("time")
+                .help("Specify the duration of each project in minutes.")
+                .takes_value(true),
+        )
+        .get_matches();
 
     let default_time = 10.0;
     let sleep_time = get_sleep_time(args.value_of("time"), default_time);
@@ -105,7 +104,8 @@ fn main() {
         println!("🔍 can't find any apps in {}\n", &content_path);
         println!("please supply a path to a folder containing .app files\n");
         exit(0);
-    } if apps.len() == 1 {
+    }
+    if apps.len() == 1 {
         println!("🔍 found 1 app\n-----");
     } else {
         println!("🔍 found {} apps\n!-----", apps.len());
