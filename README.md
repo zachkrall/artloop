@@ -16,7 +16,7 @@ cargo install artloop
 
 with `npm`:
 ```shell
-npm install artloop
+npm -g install artloop
 ```
 
 to confirm artloop is installed, you can run `which artloop` in your terminal.
