@@ -3,12 +3,11 @@
   "version": "0.0.0",
   "description": "artloop is a command-line interface that cycles through all applications within a folder on a timed interval for art installations.",
   "main": "index.js",
-  "bin": {
-    "artloop": "./npm/run.js"
+  "script": {
+    "install": "./npm/install.js"
   },
   "scripts": {
-    "postinstall": "node ./npm/install.js",
-    "preinstall": "node ./npm/uninstall.js"
+    "postinstall": "npm run install"
   },
   "repository": {
     "type": "git",
