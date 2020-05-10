@@ -1,6 +1,6 @@
 {
   "name": "artloop",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "artloop is a command-line interface that cycles through all applications within a folder on a timed interval for art installations.",
   "main": "index.js",
   "script": {
@@ -25,9 +25,7 @@
     "url": "https://github.com/zachkrall/artloop/issues"
   },
   "homepage": "https://github.com/zachkrall/artloop#readme",
-  "dependencies": {
-    "binary-install": "0.0.1"
-  },
+  "dependencies": {},
   "files": [
     "npm/**/*"
   ]
