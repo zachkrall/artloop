@@ -1,6 +1,6 @@
 [package]
 name = "artloop"
-version = "0.0.0"
+version = "0.0.1"
 authors = ["Zach Krall"]
 edition = "2018"
 license = "MIT"
@@ -26,4 +26,3 @@ exclude = [
 [dependencies]
 glob = "0.3.0"
 clap = "2"
-web-view = { version = "0.5.4" }
